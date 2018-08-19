@@ -1,6 +1,6 @@
 package com.obvio.complaintsapi.resources;
 
-import com.obvio.complaintsapi.bo.IComplaintBO;
+import com.obvio.complaintsapi.BO.IComplaintBO;
 import com.obvio.complaintsapi.model.Complaint;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -32,5 +32,16 @@ public class ComplaintResource {
     @DeleteMapping("/del/{id}")
     public void deleteComplaint(@PathVariable("id") String id){
         complaintBO.deleteComplaint(id);
+    }
+
+
+    @GetMapping("/ByCity/{city}")
+    public List<Complaint> getComplaintsByCity(@PathVariable("city") String city){
+        return complaintBO.getComplaintsbyCity(city);
+    }
+
+    @GetMapping("/ByCompany/{company}")
+    public List<Complaint> getComplaintsByCompany(@PathVariable("company") String company){
+        return complaintBO.getComplaintsbyCompany(company);
     }
 }

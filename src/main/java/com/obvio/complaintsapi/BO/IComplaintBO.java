@@ -1,4 +1,4 @@
-package com.obvio.complaintsapi.bo;
+package com.obvio.complaintsapi.BO;
 
 import com.obvio.complaintsapi.model.Complaint;
 import org.springframework.stereotype.Service;
@@ -17,4 +17,8 @@ public interface IComplaintBO {
     Complaint editComplaint(Complaint complaint);
 
     void deleteComplaint(String id);
+
+    List<Complaint> getComplaintsbyCity(String city);
+
+    List<Complaint> getComplaintsbyCompany(String company);
 }
