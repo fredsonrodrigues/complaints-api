@@ -41,4 +41,9 @@ public class ComplaintBO implements IComplaintBO {
 
     @Override
     public List<Complaint> getComplaintsbyCompany(String company) { return cr.findByCompany(company); }
+
+    @Override
+    public List<Complaint> getComplaintsbyCompanyAndCity(String company, String city) {
+        return cr.findByCompanyAndCity(company, city);
+    }
 }

@@ -2,6 +2,7 @@ package com.obvio.complaintsapi.model;
 
 import lombok.Data;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document
@@ -23,5 +24,5 @@ public class Complaint {
 
     private String state;
 
-    private String company;
+    private Company company;
 }

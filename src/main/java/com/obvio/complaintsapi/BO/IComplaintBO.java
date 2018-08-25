@@ -21,4 +21,6 @@ public interface IComplaintBO {
     List<Complaint> getComplaintsbyCity(String city);
 
     List<Complaint> getComplaintsbyCompany(String company);
+
+    List<Complaint> getComplaintsbyCompanyAndCity(String company, String city);
 }

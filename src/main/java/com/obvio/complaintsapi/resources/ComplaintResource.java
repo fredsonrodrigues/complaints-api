@@ -44,4 +44,9 @@ public class ComplaintResource {
     public List<Complaint> getComplaintsByCompany(@PathVariable("company") String company){
         return complaintBO.getComplaintsbyCompany(company);
     }
+
+    @GetMapping("/ByCompany/{company}/{city}")
+    public List<Complaint> getComplaintsByCompanyAndCity(@PathVariable("company") String company, @PathVariable("city") String city){
+        return complaintBO.getComplaintsbyCompanyAndCity(company, city);
+    }
 }
