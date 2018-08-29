@@ -1,6 +1,7 @@
 package com.obvio.complaintsapi.BO;
 
 import com.obvio.complaintsapi.model.Complaint;
+import com.obvio.complaintsapi.responses.CountCompanyResponse;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -18,7 +19,7 @@ public interface IComplaintBO {
 
     void deleteComplaint(String id);
 
-    List<Complaint> getComplaintsbyCity(String city);
+    List<CountCompanyResponse> getComplaintsbyCity(String city);
 
     List<Complaint> getComplaintsbyCompany(String company);
 

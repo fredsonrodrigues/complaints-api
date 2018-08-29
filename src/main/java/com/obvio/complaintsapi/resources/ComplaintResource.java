@@ -2,6 +2,7 @@ package com.obvio.complaintsapi.resources;
 
 import com.obvio.complaintsapi.BO.IComplaintBO;
 import com.obvio.complaintsapi.model.Complaint;
+import com.obvio.complaintsapi.responses.CountCompanyResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -14,6 +15,7 @@ public class ComplaintResource {
     @Autowired
     private IComplaintBO complaintBO;
 
+    // ENDPOINTS CRIADOS PARA ALIMENTAR O BANCO
     @GetMapping("/")
     public List<Complaint> getComplaints(){
         return complaintBO.getAllComplaints();
@@ -33,10 +35,10 @@ public class ComplaintResource {
     public void deleteComplaint(@PathVariable("id") String id){
         complaintBO.deleteComplaint(id);
     }
-
+    // ENDPOINTS CRIADOS PARA ALIMENTAR O BANCO
 
     @GetMapping("/ByCity/{city}")
-    public List<Complaint> getComplaintsByCity(@PathVariable("city") String city){
+    public List<CountCompanyResponse> getComplaintsByCity(@PathVariable("city") String city){
         return complaintBO.getComplaintsbyCity(city);
     }
 
