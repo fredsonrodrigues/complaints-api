@@ -22,9 +22,7 @@ public class Complaint {
 
     private String description;
 
-    private String city;
-
-    private String state;
+    private Location location;
 
     private Company company;
 }

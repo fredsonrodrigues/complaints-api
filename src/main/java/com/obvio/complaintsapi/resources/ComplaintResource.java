@@ -2,6 +2,7 @@ package com.obvio.complaintsapi.resources;
 
 import com.obvio.complaintsapi.BO.IComplaintBO;
 import com.obvio.complaintsapi.model.Complaint;
+import com.obvio.complaintsapi.responses.CountCityResponse;
 import com.obvio.complaintsapi.responses.CountCompanyResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -43,7 +44,7 @@ public class ComplaintResource {
     }
 
     @GetMapping("/ByCompany/{company}")
-    public List<Complaint> getComplaintsByCompany(@PathVariable("company") String company){
+    public List<CountCityResponse> getComplaintsByCompany(@PathVariable("company") String company){
         return complaintBO.getComplaintsbyCompany(company);
     }
 

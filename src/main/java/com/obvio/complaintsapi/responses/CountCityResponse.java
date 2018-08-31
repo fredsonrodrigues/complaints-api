@@ -3,8 +3,9 @@ package com.obvio.complaintsapi.responses;
 import lombok.Data;
 
 @Data
-public class CountCompanyResponse {
+public class CountCityResponse {
 
-    public String company;
+    public String city;
+    public String state;
     public String complaints;
 }

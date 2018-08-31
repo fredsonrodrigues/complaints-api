@@ -13,14 +13,15 @@ public interface ComplaintRepository extends MongoRepository<Complaint, String> 
 
     Complaint findComplaintById(String id);
 
-    List<Complaint> findByCity(String city);
+    @Query("{'location.city': ?0}")
+    List<Complaint> findByLocation(String city);
 
-    @Query(value = "{'company.cnpj': ?0, 'city': ?1}", count = true)
+    @Query(value = "{'company.cnpj': ?0, 'location.city': ?1}", count = true)
     int countByCompanyAndCity(String company, String city);
 
-    @Query("{'company.name': ?0}")
+    @Query("{'company.cnpj': ?0}")
     List<Complaint> findByCompany(String company);
 
-    @Query(value = "{'company.cnpj': ?0, 'city': ?1}", count = false)
+    @Query(value = "{'company.cnpj': ?0, 'location.city': ?1}", count = false)
     List<Complaint> findByCompanyAndCity(String company, String city);
 }
