@@ -19,9 +19,9 @@ class App extends Component {
 
   Footer() {
     return (
-      <div class="hero-foot">
-        <nav class="tabs is-boxed is-fullwidth">
-          <div class="container">
+      <div className="hero-foot">
+        <nav className="tabs is-boxed is-fullwidth">
+          <div className="container">
             <ul>
               <li className={(this.state.classChange === 1 ? "is-active" : "")}>
                 <a onClick={(e) => this.changeNow(1)}>Lista por Empresa</a>
@@ -38,14 +38,14 @@ class App extends Component {
 
   Hero() {
     return (
-      <section class="hero is-success">
+      <section className="hero is-success">
         <Header />
-        <div class="hero-body">
-          <div class="container has-text-centered">
-            <p class="title">
+        <div className="hero-body">
+          <div className="container has-text-centered">
+            <p className="title">
               {this.state.classChange === 1 ? "Lista de Empresas" : "Lista de Cidades"}
             </p>
-            <p class="subtitle">
+            <p className="subtitle">
               {this.state.classChange === 1 ? "Reclamações por Cidade" : "Reclamações por Empresa"}
           </p>
           </div>

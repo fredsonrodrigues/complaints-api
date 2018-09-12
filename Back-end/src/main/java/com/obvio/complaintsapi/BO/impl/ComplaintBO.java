@@ -1,5 +1,6 @@
-package com.obvio.complaintsapi.BO;
+package com.obvio.complaintsapi.BO.impl;
 
+import com.obvio.complaintsapi.BO.IComplaintBO;
 import com.obvio.complaintsapi.model.Company;
 import com.obvio.complaintsapi.model.Complaint;
 import com.obvio.complaintsapi.model.Location;
@@ -42,7 +43,18 @@ public class ComplaintBO implements IComplaintBO {
         Complaint c = cr.findComplaintById(id);
         cr.delete(c);
     }
+
     // ---- Métodos criados para alimentar a base -----
+
+    @Override
+    public Set<Location> getAllLocations() {
+        Set<Location> locations = new HashSet<>();
+
+        for (Complaint c : cr.findAll()) {
+            locations.add(c.getLocation());
+        }
+        return locations;
+    }
 
     @Override
     public List<CountCompanyResponse> getComplaintsbyCity(String city) {

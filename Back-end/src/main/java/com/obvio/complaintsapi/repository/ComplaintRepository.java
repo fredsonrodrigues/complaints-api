@@ -19,7 +19,7 @@ public interface ComplaintRepository extends MongoRepository<Complaint, String> 
     @Query(value = "{'company.id': ?0, 'location.city': ?1}", count = true)
     int countByCompanyAndCity(String company, String city);
 
-    @Query("{'company.cnpj': ?0}")
+    @Query("{'company.id': ?0}")
     List<Complaint> findByCompany(String company);
 
     @Query(value = "{'company.id': ?0, 'location.city': ?1}", count = false)
