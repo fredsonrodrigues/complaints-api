@@ -1,4 +1,6 @@
 import React, { Component } from 'react'
+import Complaint from './Complaint'
+
 
 export default class Empresa extends Component {
     constructor(props) {
@@ -8,6 +10,8 @@ export default class Empresa extends Component {
             cityData: null,
             complaintData: null,
             turn: 1,
+            company: null,
+            city: null,
         }
     }
 
@@ -43,15 +47,16 @@ export default class Empresa extends Component {
     }
 
     getCompanyCities(id) {
-        this.setState({turn: 2})
         fetch(`http://localhost:8080/complaint/ByCompany/${id}`)
-            .then(response => response.json())
-            .then(data => {
+        .then(response => response.json())
+        .then(data => {
                 this.setState({
+                    turn: 2, 
+                    company: id,
                     cityData: data
                 })
             }
-            );
+        );
     }
 
     TableCompanyCities() {
@@ -62,7 +67,7 @@ export default class Empresa extends Component {
                     <td>{company.state}</td>
                     <td>{company.complaints}</td>
                     <td><a className="button is-success" id="2"
-                        onClick={this.CardsComplaints.bind(this)}>
+                        onClick={this.CardsComplaints.bind(this, company.city)}>
                         Ver Reclamações</a>
                     </td>
                 </tr>
@@ -75,8 +80,27 @@ export default class Empresa extends Component {
         }
     }
 
-    CardsComplaints(){
-        this.setState({ turn: 3 })
+    CardsComplaints(city){
+        this.setState({ turn: 3, city: city })
+    }
+
+    backHistory() {
+        let turn = this.state.turn - 1
+        this.setState({
+            turn: turn
+        })
+    }
+
+    backButton() {
+        return <div className="columns">
+            <div className="column">
+            </div>
+            <div className="column">
+                <a className="button is-danger is-fullwidth" onClick={this.backHistory.bind(this)}>Voltar</a>
+            </div>
+            <div className="column">
+            </div>
+        </div>
     }
 
     componentDidMount() {
@@ -85,6 +109,7 @@ export default class Empresa extends Component {
 
     render() {
         let func
+        let action
         if (this.state.turn === 1) {
             func = <table className="table is-hoverable is-fullwidth">
             <thead>
@@ -98,6 +123,7 @@ export default class Empresa extends Component {
                     {this.TableCompanies()}          
                 </tbody>
         </table>
+            action = <div></div>
         } else if (this.state.turn === 2) {
             func = <table className="table is-hoverable is-fullwidth">
             <thead>
@@ -111,12 +137,16 @@ export default class Empresa extends Component {
                     {this.TableCompanyCities()}
                 </tbody>
             </table>
+            action = this.backButton()
         } else if (this.state.turn === 3) {
-            func = <h1>Essas são as reclamações</h1>
+            func = <Complaint empresa={this.state.company} cidade={this.state.city}/>
+            action = this.backButton()
         }
         return (
             <div className="container">
                 {func}
+                <br />
+                {action}
             </div>
         )
     }
