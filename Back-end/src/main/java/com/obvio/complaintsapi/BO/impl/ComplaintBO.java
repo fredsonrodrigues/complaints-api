@@ -67,7 +67,7 @@ public class ComplaintBO implements IComplaintBO {
 
         for (Company comp: companyList) {
             CountCompanyResponse cc = new CountCompanyResponse();
-            cc.setCompany(comp.getName());
+            cc.setCompany(comp);
             cc.setComplaints(String.valueOf(cr.countByCompanyAndCity(comp.getId(), city)));
             ccr.add(cc);
         }

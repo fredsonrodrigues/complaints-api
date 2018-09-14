@@ -46,6 +46,7 @@ public class ComplaintResource {
         return complaintBO.getAllLocations();
     }
 
+    @CrossOrigin
     @GetMapping("/ByCity/{city}")
     public List<CountCompanyResponse> getComplaintsByCity(@PathVariable("city") String city){
         return complaintBO.getComplaintsbyCity(city);
@@ -57,6 +58,7 @@ public class ComplaintResource {
         return complaintBO.getComplaintsbyCompany(company);
     }
 
+    @CrossOrigin
     @GetMapping("/ByCompany/{company}/{city}")
     public List<Complaint> getComplaintsByCompanyAndCity(@PathVariable("company") String company, @PathVariable("city") String city){
         return complaintBO.getComplaintsbyCompanyAndCity(company, city);
