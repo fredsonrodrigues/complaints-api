@@ -1,0 +1,25 @@
+version: "3.1"
+
+services:
+  
+  mongobase:
+    build:
+      context: ./Database
+    restart: unless-stopped
+    command: mongod --bind_ip_all
+
+  api:
+    build:
+      context: ./Back-end/
+    ports:
+      - "8080:8080"
+    depends_on:
+      - mongobase
+
+  frontend:
+    build:
+      context: ./Front-end/
+    ports:
+      - "8081:80"
+    depends_on:
+      - api

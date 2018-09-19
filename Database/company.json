@@ -1,0 +1,14 @@
+[
+    {
+        "_id": "5b8ddefa1ffc841018396b94",
+        "cnpj": "03995515001309",
+        "name": "Mateus Supermercados ltda",
+        "_class": "com.obvio.complaintsapi.model.Company"
+    },
+    {
+        "_id": "5b8ddf5a1ffc841018396b95",
+        "cnpj": "01172655000100",
+        "name": "Supermercados Maciel Ltda",
+        "_class": "com.obvio.complaintsapi.model.Company"
+    }
+]
