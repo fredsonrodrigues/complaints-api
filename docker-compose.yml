@@ -8,6 +8,13 @@ services:
     restart: unless-stopped
     command: mongod --bind_ip_all
 
+  mongo-seed:
+    build:
+      context: ./Database
+      dockerfile: ./Seed.Dockerfile
+    links:
+      - mongobase
+
   api:
     build:
       context: ./Back-end/
