@@ -17,7 +17,6 @@ Deleta uma reclamação no sistema.
 Retorna a lista de cidades que possuem reclamações cadastradas no sistema.
 ### GET `/complaint/ByCity/{nome-cidade}`
 Retorna a quantidade de reclamações cadastradas na cidade, agrupado por empresa
-### GET `/complaint/ByCompany/`
 ### GET `/complaint/ByCompany/{id-company}`
 Retorna a quantidade de reclamações sobre a empresa cadastradas, agrupado por cidade
 ### GET `/complaint/ByCompany/{id-company}/{nome-cidade}`
